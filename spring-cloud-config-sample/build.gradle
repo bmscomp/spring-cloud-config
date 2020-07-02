@@ -1,0 +1,15 @@
+dependencies {
+	implementation project(':spring-cloud-config-client')
+	implementation 'org.springframework.boot:spring-boot-starter-actuator:2.4.0-SNAPSHOT'
+	implementation 'org.springframework.boot:spring-boot-starter-web:2.4.0-SNAPSHOT'
+	testImplementation project(':spring-cloud-config-server')
+	testImplementation project(':spring-cloud-config-server')
+	testImplementation 'org.springframework.boot:spring-boot-starter-test:2.4.0-SNAPSHOT'
+	testImplementation 'org.junit.vintage:junit-vintage-engine:5.6.2'
+}
+
+description = 'spring-cloud-config-sample'
+
+java {
+	withJavadocJar()
+}

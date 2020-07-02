@@ -1,0 +1,9 @@
+rootProject.name = 'spring-cloud-config'
+
+include(':spring-cloud-config-client')
+include(':spring-cloud-config-server')
+include(':spring-cloud-config-monitor')
+include(':spring-cloud-config-sample')
+include(':spring-cloud-starter-config')
+include(':spring-cloud-config-docs')
+project(':spring-cloud-config-docs').projectDir = file('docs')

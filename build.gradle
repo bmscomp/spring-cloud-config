@@ -1,0 +1,61 @@
+allprojects {
+	group = 'org.springframework.cloud'
+	version = '3.0.0-SNAPSHOT'
+}
+
+subprojects {
+	apply plugin: 'java'
+	apply plugin: 'maven-publish'
+
+	repositories {
+		mavenLocal()
+		maven {
+			url = uri('http://repo.maven.apache.org/maven2')
+		}
+	}
+
+	sourceCompatibility = '1.8'
+
+	java {
+		withSourcesJar()
+	}
+
+
+	publishing {
+		publications {
+			mavenJava(MavenPublication) {
+				pom {
+					name = 'My Library'
+					description = 'A concise description of my library'
+					url = 'http://www.example.com/library'
+					properties = [
+							myProp          : "value",
+							"prop.with.dots": "anotherValue"
+					]
+					licenses {
+						license {
+							name = 'The Apache License, Version 2.0'
+							url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+						}
+					}
+					developers {
+						developer {
+							id = 'johnd'
+							name = 'John Doe'
+							email = 'john.doe@example.com'
+						}
+					}
+					scm {
+						connection = 'scm:git:git://example.com/my-library.git'
+						developerConnection = 'scm:git:ssh://example.com/my-library.git'
+						url = 'http://example.com/my-library/'
+					}
+				}
+			}
+		}
+	}
+
+	tasks.withType(JavaCompile) {
+		options.encoding = 'UTF-8'
+	}
+}

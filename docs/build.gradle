@@ -1,0 +1,9 @@
+dependencies {
+	implementation project(':spring-cloud-starter-config')
+}
+
+description = 'Spring Cloud Config Docs'
+
+java {
+	withJavadocJar()
+}
